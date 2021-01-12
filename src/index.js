@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import SearchBar from './components/SearchBar/SearchBar.jsx';
+import NewDiv from './components/NewDiv/NewDiv';
+import App from "./App"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
