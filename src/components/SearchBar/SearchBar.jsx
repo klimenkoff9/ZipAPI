@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import NewDiv from "../NewDiv/NewDiv.js"
+import NewDiv from "../NewDiv/NewDiv.js";
 
 class SearchBar extends Component {
   constructor() {
@@ -21,18 +21,17 @@ class SearchBar extends Component {
     } catch (error) {
       console.error(error);
     } finally {
-        console.log(this.state.locations);
+      console.log(this.state.locations);
     }
-    
   }
 
   handleChange = (event) => {
     const value = event.target.value;
     this.setState({
       ...this.state,
-      zip: value
+      zip: value,
     });
-    console.log(this.state.zip)
+    console.log(this.state.zip);
   };
 
   render() {
@@ -47,10 +46,10 @@ class SearchBar extends Component {
               value={this.state.zip}
               onChange={this.handleChange}
             />
-            </div>
-            <div>
-              <button onClick={this.handleSubmit}>Submit</button>
-            </div>
+          </div>
+          <div>
+            <button onClick={this.handleSubmit}>Submit</button>
+          </div>
         </form>
         {this.state.locations.map((info) => {
           const {
@@ -61,15 +60,14 @@ class SearchBar extends Component {
             EstimatedPopulation,
             TotalWages,
           } = info;
-          console.log(info.City);
           return (
             <NewDiv
-              city={info.City}
-              state={info.State}
-              locationLat={info.Lat}
-              locationLot={info.Long}
-              population={info.EstimatedPopulation}
-              wages={info.TotalWages}
+              city={City}
+              state={State}
+              locationLat={Lat}
+              locationLot={Long}
+              population={EstimatedPopulation}
+              wages={TotalWages}
             />
           );
         })}
