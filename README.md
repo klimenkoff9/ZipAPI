@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+## Zip Search API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+http://ctp-zip-api.herokuapp.com/
 
-## Available Scripts
+For this project we will be developing two simple applications, (1) the first app allows us to search for City names and details for a given zip code, and (2) the second app allows us to find all of Zip codes associated with a given City name.
 
-In the project directory, you can run:
+Below is a description of the relevant API endpoints for the projects:
 
-### `npm start`
+### `/zip/:zipcode` - find Cities associated with a zipcode
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`http://ctp-zip-api.herokuapp.com/zip/:zipcode`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+provide the zipcode in the url and you will receive a JSON response with an array containing an object for each city found. 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+http://ctp-zip-api.herokuapp.com/zip/10016
 
-### `npm run build`
+### `/city/:cityname` - find Zip Codes associated with a city name
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`http://ctp-zip-api.herokuapp.com/city/:cityname`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`:cityname` must be in all caps
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+provide the city name in the url and you will receive a JSON response with an array containing a list of all zip codes for that city:
 
-### `npm run eject`
+http://ctp-zip-api.herokuapp.com/city/SPRINGFIELD
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project 1: Zip Code Search app
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In this project you will build a simple Zip Code search app. We will need an input field where the user can enter a zip code, like in the following image:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### [Before Search](https://github.com/CUNYTechPrep/week-03-projects/blob/master/zip-search-1.png)
 
-## Learn More
+We will use the user input to search the ctp-zip-api. If the zip code is valid the API will respond with an object for each city. Use that response to display each city in a separate div like in the following image: 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### [After Search](https://github.com/CUNYTechPrep/week-03-projects/blob/master/zip-search-2.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Getting started
 
-### Code Splitting
+To get started run the following commands
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `create-react-app zip-search`
+- `cd city-search`
+- `npm start`
 
-### Analyzing the Bundle Size
+At this point you should see the React hello world page running on your browser. You should leave it running in the background while you work on this project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Now open this folder (`zip-search`) in your text editor. You will see all of the code the create-react-app setup for us. Since this is the stock project we can begin editing the files as we see fit. You can start at `App.js` and you can also edit `public/index.html` (to add Bootstrap for example).
